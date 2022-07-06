@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+</head>
+<body class="container">
+<p id="demo"></p>
+
+
+<script>
+
+const array = randomExec()
+for(const a of array) document.write(a)
+
+
+function randomExec() {
+	let exec = []
+	for(let i = 1 ; i <= 99 ; i++) {
+		for(j = 1  ; j <= 99 ; j++) {
+			if(j < i) continue
+			if((j % 10) >= (i % 10)) continue
+			exec.push(j.toString() + " - " + i.toString() + " = " /*+ (j - i).toString()*/ + "</br>")
+		}
+	}
+	
+	const random = []
+	while(true) {
+		const pivot = getRandomInt(exec.length)
+		const ex = exec[pivot]
+		if(! random.includes(ex)) random.push(ex)
+		
+		if(random.length == 10) return random
+	}
+	
+	
+	//return exec
+
+}
+
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+
+
+
+</script>
+</body>
+</html>
